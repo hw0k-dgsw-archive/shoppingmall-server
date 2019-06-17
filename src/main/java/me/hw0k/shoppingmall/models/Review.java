@@ -1,4 +1,4 @@
-package me.hw0k.shoppingmall.model;
+package me.hw0k.shoppingmall.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -9,41 +9,31 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Set;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Review {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private UserWithProductKey id;
 
-    @Column
-    private String account;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @MapsId("user_id")
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @Column
-    private String password;
-
-    @Column
-    private String name;
-
-    @Column
-    private String phoneNumber;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @MapsId("product_id")
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     @Column
-    private String zipCode;
+    private int star;
 
     @Column
-    private String address;
-
-    @Column
-    private String email;
-
-    @OneToMany(mappedBy = "user")
-    private Set<Review> reviews;
+    private String comment;
 
     @CreationTimestamp
     @JsonFormat(pattern = "YYYY-mm-dd H:mm:ss")

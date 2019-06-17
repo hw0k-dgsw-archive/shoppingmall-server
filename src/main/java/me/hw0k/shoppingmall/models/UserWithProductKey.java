@@ -1,4 +1,4 @@
-package me.hw0k.shoppingmall.model;
+package me.hw0k.shoppingmall.models;
 
 import lombok.*;
 
@@ -10,7 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-class UserWithProductKey implements Serializable {
+public class UserWithProductKey implements Serializable {
 
     @Column(name = "user_id")
     Long userId;

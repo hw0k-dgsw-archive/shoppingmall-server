@@ -1,4 +1,4 @@
-package me.hw0k.shoppingmall.model;
+package me.hw0k.shoppingmall.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class Contract {
+public class Contract {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package me.hw0k.shoppingmall.model;
+package me.hw0k.shoppingmall.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
