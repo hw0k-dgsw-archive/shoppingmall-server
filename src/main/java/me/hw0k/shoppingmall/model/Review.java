@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Review {
 
     @EmbeddedId
-    private ReviewKey id;
+    private UserWithProductKey id;
 
     @ManyToOne
     @MapsId("user_id")

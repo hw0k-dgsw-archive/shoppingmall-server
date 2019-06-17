@@ -10,7 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-class ReviewKey implements Serializable {
+class UserWithProductKey implements Serializable {
 
     @Column(name = "user_id")
     Long userId;
