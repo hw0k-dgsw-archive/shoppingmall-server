@@ -19,12 +19,12 @@ public class Review {
     @EmbeddedId
     private UserWithProductKey id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @MapsId("user_id")
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @MapsId("product_id")
     @JoinColumn(name = "product_id")
     private Product product;
