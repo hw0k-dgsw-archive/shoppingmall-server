@@ -2,6 +2,7 @@ package me.hw0k.shoppingmall.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,7 +22,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(unique = true)
     private String account;
 
     @Column
@@ -30,7 +31,7 @@ public class User {
     @Column
     private String name;
 
-    @Column
+    @Column(unique = true)
     private String phoneNumber;
 
     @Column
@@ -39,7 +40,7 @@ public class User {
     @Column
     private String address;
 
-    @Column
+    @Column(unique = true)
     private String email;
 
     @OneToMany(mappedBy = "user")
@@ -53,4 +54,14 @@ public class User {
     @JsonFormat(pattern = "YYYY-mm-dd H:mm:ss")
     private LocalDateTime updated;
 
+    @Builder
+    public User(String account, String password, String name, String phoneNumber, String zipCode, String address, String email) {
+        this.account = account;
+        this.password = password;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.zipCode = zipCode;
+        this.address = address;
+        this.email = email;
+    }
 }
