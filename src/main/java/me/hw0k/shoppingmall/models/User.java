@@ -64,4 +64,11 @@ public class User {
         this.address = address;
         this.email = email;
     }
+
+    @Builder
+    public User(String account, String password) {
+        this.account = account;
+        this.password = password;
+    }
+
 }

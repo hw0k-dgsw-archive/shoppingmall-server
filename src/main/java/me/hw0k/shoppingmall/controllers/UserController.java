@@ -20,14 +20,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @EqualsAndHashCode
-    private class LoginPayload {
-        @Getter @Setter private String account;
-        @Getter @Setter private String password;
-    }
-
     @GetMapping("/")
     public ResponseEntity<List<User>> list() {
         return userService.list();
@@ -44,7 +36,7 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<User> create(@PathVariable Long id, @RequestBody User user) {
+    public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
         return userService.update(id, user);
     }
 
@@ -54,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<User> login(@RequestBody LoginPayload payload) {
-        return userService.login(payload.getAccount(), payload.getPassword());
+    public ResponseEntity<User> login(@RequestBody User user) {
+        return userService.login(user.getAccount(), user.getPassword());
     }
 }
